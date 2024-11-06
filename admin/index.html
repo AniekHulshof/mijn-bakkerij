@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijn Bakkerij</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+    <script src="index.js" defer></script>
+</head>
+
+<body class="flex flex-col h-screen">
+    <nav>
+        <div class="bg-[url('../images/header-cupcakes.png')] bg-cover bg-center relative border-b-2 border-orange-200">
+            <div class="bg-pink-200 bg-opacity-70">
+                <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                    <div class="py-5 flex justify-between items-center">
+                        <div class="text-center mx-auto">
+                            <a href="../public/index.html">
+                                <p class="text-2xl sm:text-3xl lg:text-4xl font-serif italic">Mijn Bakkerij</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="relative">
+            <div class="bg-pink-200 bg-opacity-70">
+                <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                    <div class="flex flex-col sm:flex-row justify-evenly items-center w-full">
+                        <div class="flex items-center py-2 px-2 sm:py-4 sm:px-4">
+                            <img src="../public/icons/person.svg" alt="Person"
+                                class="mr-2 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+                            <p class="text-xs sm:text-sm lg:text-base whitespace-nowrap">Admin Panel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="flex flex-col items-center justify-center">
+        <div id="containerDiv" class="mx-auto max-w-7xl px-2 sm:px-2 lg:px-4 w-full">
+            <div class="flex justify-center m-5">
+                <button id="orders" class="bg-yellow-500 rounded p-2 mr-2">Orders</button>
+                <button id="products" class="bg-orange-200 hover:bg-yellow-500 rounded p-2">Producten</button>
+            </div>
+            <div id="tableOrders" class="border rounded-md mt-6 mb-6 w-full">
+                <table class="mx-auto w-full border-collapse">
+                    <thead class="bg-gray-100 text-gray-400">
+                        <tr>
+                            <th class="text-left px-4 py-2 rounded-tl-md">ID</th>
+                            <th class="text-left px-4 py-2">Totaal</th>
+                            <th class="text-left px-4 py-2">Datum en tijd</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orderItem">
+                    </tbody>
+                </table>
+                <div id="noOrders" class="hidden">
+                    <p class="text-xl text-center m-6">Er zijn geen orders om weer te geven</p>
+                </div>
+            </div>
+            <div class="flex justify-end">
+                <button id="reset"
+                    class="hidden p-1 pr-3 pl-3 mr-2 bg-transparent text-red-400 border border-red-400 hover:bg-red-100 rounded">Reset</button>
+                <button id="addItem"
+                    class="hidden p-1 pr-3 pl-3 bg-transparent text-blue-400 border border-blue-400 hover:bg-blue-100 rounded">+</button>
+            </div>
+            <div id="tableProducts" class="hidden border rounded-md mt-2 mb-6 w-full overflow-x-auto">
+                <table class="mx-auto w-full border-collapse">
+                    <thead class="bg-gray-100 text-gray-400">
+                        <tr>
+                            <th class="text-left px-4 py-2 sm:px-6 sm:py-3 rounded-tl-md">ID</th>
+                            <th class="text-left px-4 py-2 sm:px-6 sm:py-3">Naam</th>
+                            <th class="text-left px-4 py-2 sm:px-6 sm:py-3">Prijs</th>
+                            <th class="text-left px-4 py-2 sm:px-6 sm:py-3">Afbeelding URL</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="productItem">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="popupModify" class="hidden">
+            <div class="fixed inset-0 z-50 bg-gray-500 bg-opacity-40 flex items-center justify-center">
+                <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold">Item aanpassen</h2>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="mb-4">
+                            <label for="titleModify" class="block mb-1">Naam</label>
+                            <input type="text" name="titleModify" id="titleModify"
+                                class="p-1 bg-gray-50 border border-gray-300 rounded w-64">
+                            <div id="titleModifyError" class="hidden text-red-600 text-sm mt-1">Vul dit veld correct in!
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="priceModify" class="block mb-1">Prijs</label>
+                            <input type="text" name="priceModify" id="priceModify"
+                                class="p-1 bg-gray-50 border border-gray-300 rounded w-16">
+                            <div id="priceModifyError" class="hidden text-red-600 text-sm mt-1">Vul dit veld correct in!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="imageURLModify" class="block mb-1">Afbeelding URL</label>
+                        <input type="text" name="imageURLModify" id="imageURLModify"
+                            class="p-1 bg-gray-50 border border-gray-300 rounded w-full">
+                        <div id="imageURLModifyError" class="hidden text-red-600 text-sm mt-1">Vul dit veld correct in!
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="infoModify" class="block mb-1">Info</label>
+                        <textarea name="infoModify" id="infoModify"
+                            class="p-4 bg-gray-50 border border-gray-300 rounded w-full max-h-32"></textarea>
+                        <div id="infoModifyError" class="hidden text-red-600 text-sm mt-1">Vul dit veld correct in!
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="ingredientsModify" class="block mb-1">Ingrediënten</label>
+                        <textarea name="ingredientsModify" id="ingredientsModify"
+                            class="p-4 bg-gray-50 border border-gray-300 rounded w-full max-h-32"></textarea>
+                        <div id="ingredientsModifyError" class="hidden text-red-600 text-sm mt-1">Vul dit veld correct
+                            in!</div>
+                    </div>
+                    <div class="mt-6">
+                        <button id="closePopupModify"
+                            class="px-4 py-2 bg-transparent text-red-400 border border-red-400 hover:bg-red-100 rounded">Annuleren</button>
+                        <button type="submit" id="submitModify"
+                            class="px-4 py-2 bg-transparent text-blue-400 border border-blue-400 hover:bg-blue-100 rounded">Wijzigen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="popupAdd" class="hidden">
+            <div class="fixed inset-0 z-50 bg-gray-500 bg-opacity-40 flex items-center justify-center">
+                <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold">Item toevoegen</h2>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="mb-4">
+                            <label for="titleAdd" class="block mb-1">Naam</label>
+                            <input type="text" name="titleAdd" id="titleAdd"
+                                class="p-1 bg-gray-50 border border-gray-300 rounded w-64">
+                            <div id="titleAddError" class="hidden text-red-600 text-sm mt-1">Vul dit veld correct in!
+                            </div>
+                        </div>
+                        <div class="mb-4 ml-4">
+                            <label for="priceAdd" class="block mb-1">Prijs</label>
+                            <input type="text" name="priceAdd" id="priceAdd"
+                                class="p-1 bg-gray-50 border border-gray-300 rounded w-16">
+                            <div id="priceAddError" class="hidden text-red-600 text-sm mt-1">Vul dit veld correct in!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="imageURLAdd" class="block mb-1">Afbeelding URL</label>
+                        <input type="text" name="imageURLAdd" id="imageURLAdd"
+                            class="p-1 bg-gray-50 border border-gray-300 rounded w-full">
+                        <div id="imageURLAddError" class="hidden text-red-600 text-sm mt-1">Vul dit veld correct in!
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="infoAdd" class="block mb-1">Info</label>
+                        <textarea name="infoAdd" id="infoAdd"
+                            class="p-4 bg-gray-50 border border-gray-300 rounded w-full max-h-32"></textarea>
+                        <div id="infoAddError" class="hidden text-red-600 text-sm mt-1">Vul dit veld correct in!</div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="ingredientsAdd" class="block mb-1">Ingrediënten</label>
+                        <textarea name="ingredientsAdd" id="ingredientsAdd"
+                            class="p-4 bg-gray-50 border border-gray-300 rounded w-full max-h-32"></textarea>
+                        <div id="ingredientsAddError" class="hidden text-red-600 text-sm mt-1">Vul dit veld correct
+                            in!</div>
+                    </div>
+                    <div class="mt-6">
+                        <button id="closePopupAdd"
+                            class="px-4 py-2 bg-transparent text-red-400 border border-red-400 hover:bg-red-100 rounded">Annuleren</button>
+                        <button type="submit" id="submitAdd"
+                            class="px-4 py-2 bg-transparent text-blue-400 border border-blue-400 hover:bg-blue-100 rounded">Toevoegen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="mt-auto">
+        <div class="bg-[url('../images/header-cupcakes.png')] bg-cover bg-center relative border-t-2 border-orange-200">
+            <div class="bg-pink-200 bg-opacity-70">
+                <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                    <div class="py-5 flex justify-between items-center">
+                        <div class="text-center mx-auto">
+                            <a href="../public/index.html">
+                                <p class="text-2xl sm:text-3xl lg:text-4xl font-serif italic">
+                                    Mijn Bakkerij</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

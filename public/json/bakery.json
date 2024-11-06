@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "image": "images/appelflappen.jpeg",
+        "title": "Appelflappen",
+        "info": "Ondanks mijn appel allergie, maak ik speciaal voor jullie (met handschoenen aan) appelflappen!",
+        "ingredients": "Ingrediënten: Bladerdeeg, appel, ei, suiker",
+        "price": 2.50
+    },
+    {
+        "id": 2,
+        "image": "images/brownie.jpeg",
+        "title": "Brownie met stukjes stroopwafel",
+        "info": "Deze heerlijke brownie, is gemaakt om het WK dansen te sponsoren. Geniet ervan!",
+        "ingredients": "Ingrediënten: Cacao, meel, chocolade stukjes, karamel, stroopwafel",
+        "price": 3.00
+    },
+    {
+        "id": 3,
+        "image": "images/cupcake-limoen.jpeg",
+        "title": "Vanille cupcake met limoensmaak",
+        "info": "Een frisse twist op de klassieke vanille cupcake, perfect voor liefhebbers van citrus.",
+        "ingredients": "Ingrediënten: Bloem, suiker, boter, vanille-extract, limoensap, limoenrasp, eieren, melk, bakpoeder, zout",
+        "price": 2.00
+    },
+    {
+        "id": 4,
+        "image": "images/cupcake-munt.jpeg",
+        "title": "Chocolade cupcake met muntsmaak",
+        "info": "Een verrukkelijke combinatie van chocolade en verfrissende muntsmaak, een ware traktatie voor de smaakpapillen.",
+        "ingredients": "Ingrediënten: Bloem, suiker, boter, cacaopoeder, muntextract, eieren, melk, bakpoeder, zout",
+        "price": 2.00
+    },
+    {
+        "id": 5,
+        "image": "images/koekjes.jpeg",
+        "title": "Gedecoreerde koekjes",
+        "info": "Prachtig versierde koekjes die zowel een lust voor het oog als voor de smaak zijn.",
+        "ingredients": "Ingrediënten: Bloem, suiker, boter, eieren, vanille-extract, bakpoeder, zout, glazuur, voedselkleurstof",
+        "price": 1.50
+    },
+    {
+        "id": 6,
+        "image": "images/kwarktaart.jpg",
+        "title": "Kwarktaart met limoen en muntsmaak",
+        "info": "Een verfrissende kwarktaart met een vleugje limoen en muntsmaak, perfect voor een lichte en smaakvolle traktatie.",
+        "ingredients": "Ingrediënten: Koekjesbodem, kwark, limoensap, muntblaadjes, gelatine, suiker, slagroom",
+        "price": 4.00
+    },
+    {
+        "id": 7,
+        "image": "images/misvormde-muffin.jpeg",
+        "title": "Misvormde aardbei chocola muffins",
+        "info": "Hoewel ze er misschien wat anders uitzien, zijn deze muffins gevuld met smaakvolle aardbei en chocolade, een ware traktatie!",
+        "ingredients": "Ingrediënten: Bloem, suiker, boter, eieren, melk, aardbeien, chocoladestukjes, bakpoeder, zout",
+        "price": 2.50
+    },
+    {
+        "id": 8,
+        "image": "images/monchou.jpeg",
+        "title": "Monchou uit een glas",
+        "info": "Een romige en verrukkelijke traktatie, perfect om te genieten als toetje of gewoon tussendoor.",
+        "ingredients": "Ingrediënten: Monchou, suiker, vanille-extract, slagroom, koekjeskruimels, boter",
+        "price": 3.50
+    }
+]
